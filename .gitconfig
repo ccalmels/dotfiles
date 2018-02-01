@@ -1,0 +1,17 @@
+[color]
+	branch = auto
+	status = auto
+	diff = auto
+
+[alias]
+	lg = log --decorate --oneline
+	root = rev-parse --show-toplevel
+
+[push]
+	default = current
+
+[pull]
+	rebase = true
+
+[include]
+	path = .gitconfig.user
