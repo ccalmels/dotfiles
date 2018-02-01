@@ -1,0 +1,20 @@
+type emacsclient >/dev/null || return
+
+export ALTERNATE_EDITOR=""
+export EDITOR="emacsclient -t"
+
+alias em=${EDITOR}
+alias kem="emacsclient -e \"(kill-emacs)\""
+
+alias emacs="emacsclient -c >&/dev/null"
+
+function sem()
+{
+	realpath -s "$@" | while read line; do
+				   printf "/sudo::%s\0" "$line"
+			   done | xargs -r0 $EDITOR
+}
+
+# Local Variables:
+# mode: sh
+# End:

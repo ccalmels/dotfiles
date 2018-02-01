@@ -1,0 +1,7 @@
+[ -d "/usr/lib/ccache" ] || return
+
+PATH="/usr/lib/ccache":${PATH}
+
+# Local Variables:
+# mode: sh
+# End:

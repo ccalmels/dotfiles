@@ -1,0 +1,5 @@
+shopt -s autocd
+
+# Local Variables:
+# mode: sh
+# End:

@@ -1,0 +1,20 @@
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+
+alias ll="ls -l"
+alias la="ls -A"
+alias l="ls -CF"
+
+alias p="pstree -anu"
+alias pp="p -p"
+alias jmake="make -j $(nproc)"
+
+alias bc="bc -l"
+
+# Local Variables:
+# mode: sh
+# End:
