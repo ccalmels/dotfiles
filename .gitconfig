@@ -4,7 +4,7 @@
 	diff = auto
 
 [alias]
-	lg = log --decorate --oneline
+	lg = log --decorate --graph --oneline
 	root = rev-parse --show-toplevel
 
 [push]
