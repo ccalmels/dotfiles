@@ -57,7 +57,7 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 ;;; Compile all .el files
-(byte-recompile-directory user-emacs-directory 0)
+;;;(byte-recompile-directory user-emacs-directory 0)
 
 ;;; add subdirectories to load-path
 (let ((default-directory (concat user-emacs-directory "lisp")))
