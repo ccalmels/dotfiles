@@ -1,10 +1,8 @@
-compton --vsync drm -b
-
-synergys
-
-for i in ~/.Xresources.d/* ; do
-	echo \#include \"$i\"
+for f in ~/.Xresources.d/*[!~] ; do
+	echo \#include \"$f\"
 done | xrdb -load
+
+which compton && compton --backend xr_glx_hybrid &
 
 exec i3
 
