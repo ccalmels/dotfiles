@@ -8,7 +8,7 @@ order += "disk /"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 #order += "wireless wlan0"
-order += "ethernet eno1"
+order += "ethernet eth0"
 #order += "battery 0"
 #order += "load"
 order += "cpu_temperature 2"
@@ -19,7 +19,7 @@ order += "time"
 #        format_down = "W: down"
 #}
 
-ethernet eno1 {
+ethernet eth0 {
         # if you use %speed, i3status requires root privileges
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
@@ -38,8 +38,7 @@ ethernet eno1 {
 #}
 
 time {
-#        format = "%Y-%m-%d %H:%M:%S"
-	 format = "%a %d %b (w. %V), %R"
+        format = "%Y-%m-%d %H:%M:%S"
 }
 
 #load {
