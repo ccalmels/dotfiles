@@ -63,12 +63,25 @@
 (let ((default-directory (concat user-emacs-directory "lisp")))
     (normal-top-level-add-subdirs-to-load-path))
 
+;;; rscope
+(when (executable-find "cscope")
+    (require 'rscope))
+
 ;;; MaGit
 (when (require 'magit nil 'noerror)
   (global-set-key (kbd "C-x g") 'magit-status))
 
+;;; password store
+(when (executable-find "pass")
+  (require 'auth-password-store)
+  (auth-pass-enable))
+
+;;; GLSL mode
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
+
 ;;; Split configuration
-(debian-run-directories (concat user-emacs-directory "/site-start.d"))
+;(debian-run-directories (concat user-emacs-directory "/site-start.d"))
 
 ;;; Customization
 (setq custom-file (concat user-emacs-directory "custom.el"))
