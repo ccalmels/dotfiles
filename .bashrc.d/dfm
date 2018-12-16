@@ -1,0 +1,11 @@
+alias dfm-git='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# load completion
+_completion_loader git
+completion=$(complete -p git 2>/dev/null)
+
+eval "${completion%%git}dfm-git"
+
+# Local Variables:
+# mode: sh
+# End:

@@ -1,0 +1,5 @@
+eval "$(lessfile)"
+
+# Local Variables:
+# mode: sh
+# End:

@@ -1,0 +1,30 @@
+if tput init >&/dev/null; then
+	_BOLD=$(tput bold)
+	_NORMAL="\["$(tput sgr0)"\]"
+	_BLUE="\[${_BOLD}"$(tput setaf 4)"\]"
+	_RED="\["${_BOLD}$(tput setaf 1)"\]"
+	_GREY="\["${_BOLD}$(tput setaf 10)"\]"
+	_PURPLE="\["${_BOLD}$(tput setaf 13)"\]"
+	_YELLOW="\["${_BOLD}$(tput setaf 3)"\]"
+fi
+
+[ "$SSH_CONNECTION" ] && _PS1="${_PS1}${_GREY}@${HOSTNAME}${_NORMAL}|"
+
+_make_prompt()
+{
+	local RET=$?
+	[ ${RET} -ne 0 ] && RET="${_RED}rc=${RET}${_NORMAL}|" || RET=""
+
+	local JOBS
+	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|" || JOBS=""
+
+	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
+	echo -ne "\a"
+}
+
+PROMPT_DIRTRIM=5
+PROMPT_COMMAND=_make_prompt
+
+# Local Variables:
+# mode: sh
+# End:
