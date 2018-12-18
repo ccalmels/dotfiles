@@ -12,6 +12,7 @@ order += "ethernet eth0"
 #order += "battery 0"
 #order += "load"
 order += "cpu_temperature 2"
+order += "cpu_temperature 4"
 order += "time"
 
 #wireless wlan0 {
@@ -38,7 +39,8 @@ ethernet eth0 {
 #}
 
 time {
-        format = "%Y-%m-%d %H:%M:%S"
+#        format = "%Y-%m-%d %H:%M:%S"
+        format = "%a %d %b, %R"
 }
 
 #load {
@@ -51,4 +53,9 @@ disk "/" {
 
 cpu_temperature 2 {
 	format = "CPU: %degrees °C"
+}
+
+cpu_temperature 4 {
+	format = "GPU: %degrees °C"
+	path = "/sys/class/hwmon/hwmon4/temp1_input"
 }
