@@ -81,7 +81,7 @@
 (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
 
 ;;; Split configuration
-;(debian-run-directories (concat user-emacs-directory "/site-start.d"))
+(debian-run-directories (concat user-emacs-directory "/site-start.d"))
 
 ;;; Customization
 (setq custom-file (concat user-emacs-directory "custom.el"))
