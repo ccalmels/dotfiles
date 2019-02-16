@@ -6,8 +6,8 @@
 [ -d ~/.bashrc.d ] || return
 
 if tput init >&/dev/null; then
-    GREEN=$(tput setaf 2)
-    NORMAL=$(tput sgr0)
+	GREEN=$(tput setaf 2)
+	NORMAL=$(tput sgr0)
 fi
 
 echo -n "$GREEN["
