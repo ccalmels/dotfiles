@@ -39,8 +39,7 @@
  column-number-mode t
  inhibit-startup-screen t
  indent-tabs-mode t
- require-final-newline t
- sh-basic-offset 8)
+ require-final-newline t)
 
 ;;; Custom exit
 (defalias 'yes-or-no-p 'y-or-n-p)

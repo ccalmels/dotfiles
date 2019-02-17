@@ -1,38 +1,38 @@
 bd()
 {
-	local base="${1%%/*}"
-	local pwd="$PWD/"
+    local base="${1%%/*}"
+    local pwd="$PWD/"
 
-	pwd="${pwd%/$base/*}"
+    pwd="${pwd%/$base/*}"
 
-	[ "$pwd" != "$PWD/" ] && cd "$pwd/$1" && echo "$PWD"
+    [ "$pwd" != "$PWD/" ] && cd "$pwd/$1" && echo "$PWD"
 }
 
 _bd()
 {
-	local IFS=$'\n' cur cword base pwd
+    local IFS=$'\n' cur cword base pwd
 
-	COMPREPLY=()
-	_get_comp_words_by_ref cur cword
+    COMPREPLY=()
+    _get_comp_words_by_ref cur cword
 
-	[ $cword -ne 1 ] && return
+    [ $cword -ne 1 ] && return
 
-	base="${cur%%/*}"
+    base="${cur%%/*}"
 
-	if [ "$base" = "$cur" ]; then
-		COMPREPLY=($(compgen -W "${PWD//\//$'\n'}" -- "$cur"))
+    if [ "$base" = "$cur" ]; then
+	COMPREPLY=($(compgen -W "${PWD//\//$'\n'}" -- "$cur"))
 
-		[ ${#COMPREPLY[@]} -eq 1 ] && [ "${COMPREPLY[0]}" = "$cur" ] && \
-		    COMPREPLY[1]="$cur/"
-	else
-		pwd="$PWD/"
-		pwd="${pwd%/$base/*}"
+	[ ${#COMPREPLY[@]} -eq 1 ] && [ "${COMPREPLY[0]}" = "$cur" ] && \
+	    COMPREPLY[1]="$cur/"
+    else
+	pwd="$PWD/"
+	pwd="${pwd%/$base/*}"
 
-		[ "$pwd" = "$PWD/" ] && return
+	[ "$pwd" = "$PWD/" ] && return
 
-		COMPREPLY=($(cd "$pwd/$base" >&/dev/null && \
-				 compgen -P "$base/" -S "/" -d -- "${cur#*/}"))
-	fi
+	COMPREPLY=($(cd "$pwd/$base" >&/dev/null && \
+			 compgen -P "$base/" -S "/" -d -- "${cur#*/}"))
+    fi
 }
 
 complete -o nospace -o filenames -F _bd bd

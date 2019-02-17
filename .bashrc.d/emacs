@@ -10,9 +10,9 @@ alias emacs="emacsclient -c >&/dev/null"
 
 function sem()
 {
-	realpath -s "$@" | while read line; do
-				   printf "/sudo::%s\0" "$line"
-			   done | xargs -r0 $EDITOR
+    realpath -s "$@" | while read line; do
+	printf "/sudo::%s\0" "$line"
+    done | xargs -r0 $EDITOR
 }
 
 # Local Variables:
