@@ -40,7 +40,7 @@ ethernet eth0 {
 
 time {
 #        format = "%Y-%m-%d %H:%M:%S"
-        format = "%a %d %b, %R"
+        format = "%a %d %b (week %V), %R"
 }
 
 #load {
