@@ -159,10 +159,8 @@ bar {
 }
 
 # floating windows
-for_window [class="MPlayer"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="feh"] floating enable
-for_window [class="Claws-mail" window_role="^((?!mainwindow).)*$"] floating enable
 for_window [class="Firefox"] border 1pixel
 
 # Launch firefox
