@@ -39,7 +39,8 @@
  column-number-mode t
  inhibit-startup-screen t
  indent-tabs-mode t
- require-final-newline t)
+ require-final-newline t
+ tramp-default-method "ssh")
 
 ;;; Custom exit
 (defalias 'yes-or-no-p 'y-or-n-p)
