@@ -7,11 +7,5 @@
 	lg = log --decorate --graph --oneline
 	root = rev-parse --show-toplevel
 
-[push]
-	default = current
-
-[pull]
-	rebase = preserve
-
 [include]
 	path = .gitconfig.user
