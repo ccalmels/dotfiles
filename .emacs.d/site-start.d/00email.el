@@ -27,7 +27,7 @@
     (add-to-list 'mu4e-bookmarks
 		 (make-mu4e-bookmark
 		  :name "Personal unread messages"
-		  :query "flag:unread AND NOT flag:trashed AND NOT maildir:/amelia/"
+		  :query "flag:unread AND NOT flag:trashed AND NOT maildir:/amelia/*"
 		  :key ?p))
 
     (load mu4e-accounts-file)
