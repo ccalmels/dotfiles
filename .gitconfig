@@ -5,6 +5,7 @@
 
 [alias]
 	lg = log --decorate --graph --oneline
+	lgs = log --decorate --graph --oneline --all
 	root = rev-parse --show-toplevel
 
 [include]
