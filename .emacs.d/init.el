@@ -35,7 +35,7 @@
 (menu-bar-mode -1)
 
 (setq-default
- compilation-ask-about-save 'nil
+ compilation-ask-about-save nil
  gdb-many-windows t
  column-number-mode t
  inhibit-startup-screen t
