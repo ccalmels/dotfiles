@@ -3,22 +3,10 @@ general {
         interval = 5
 }
 
-#order += "ipv6"
 order += "disk /"
-#order += "run_watch DHCP"
-#order += "run_watch VPN"
-#order += "wireless wlan0"
-order += "ethernet eth0"
-#order += "battery 0"
-#order += "load"
-order += "cpu_temperature 2"
-order += "cpu_temperature 4"
+order += "ethernet enp3s0"
+order += "volume master"
 order += "time"
-
-#wireless wlan0 {
-#        format_up = "W: (%quality at %essid) %ip"
-#        format_down = "W: down"
-#}
 
 ethernet eth0 {
         # if you use %speed, i3status requires root privileges
@@ -26,36 +14,16 @@ ethernet eth0 {
         format_down = "E: down"
 }
 
-#battery 0 {
-#        format = "%status %percentage %remaining"
-#}
-
-#run_watch DHCP {
-#        pidfile = "/var/run/dhclient*.pid"
-#}
-
-#run_watch VPN {
-#        pidfile = "/var/run/vpnc/pid"
-#}
-
 time {
-#        format = "%Y-%m-%d %H:%M:%S"
         format = "%a %d %b (week %V), %R"
 }
-
-#load {
-#        format = "%1min"
-#}
 
 disk "/" {
         format = "%free (%avail)/ %total"
 }
 
-cpu_temperature 2 {
-	format = "CPU: %degrees °C"
-}
-
-cpu_temperature 4 {
-	format = "GPU: %degrees °C"
-	path = "/sys/class/hwmon/hwmon4/temp1_input"
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "pulse:0"
 }

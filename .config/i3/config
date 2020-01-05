@@ -166,6 +166,11 @@ for_window [class="Firefox"] border 1pixel
 # Launch firefox
 bindsym $mod+BackSpace exec x-www-browser
 
-bindsym $mod+L exec i3lock -d -c 000000
+bindsym $mod+L exec xautolock -locknow
 
 exec --no-startup-id sh ~/.fehbg
+
+# Volume
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
