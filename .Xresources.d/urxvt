@@ -1,0 +1,21 @@
+URxvt.scrollBar: false
+URxvt.font: xft:Menlo-9
+URxvt.boldFont: xft:Menlo-9:bold
+URxvt.intensityStyles: false
+URxvt.letterSpace: -1
+URxvt.pointerBlank: true
+
+URxvt.cutchars: "\\ `\"\'&()*,;<=>?@[]^{|}:"
+URxvt.perl-ext-common: default,matcher,vtwheel
+URxvt.matcher.button:  3
+
+URxvt.urgentOnBell: true
+URxvt.fading: 25
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+URxvt.depth: 32
