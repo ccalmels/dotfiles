@@ -71,7 +71,7 @@
 
 ;;; rscope
 (when (executable-find "cscope")
-    (require 'rscope))
+    (require 'rscope nil 'noerror))
 
 ;;; MaGit
 (when (require 'magit nil 'noerror)
@@ -79,7 +79,7 @@
 
 ;;; password store
 (when (executable-find "pass")
-  (require 'password-store))
+  (require 'password-store nil 'noerror))
 
 ;;; GLSL mode
 (autoload 'glsl-mode "glsl-mode" nil t)
