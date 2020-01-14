@@ -83,7 +83,6 @@
 
 ;;; GLSL mode
 (autoload 'glsl-mode "glsl-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
 
 ;;; Split configuration
 (debian-run-directories (concat user-emacs-directory "/site-start.d"))
