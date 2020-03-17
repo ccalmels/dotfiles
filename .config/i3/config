@@ -162,6 +162,7 @@ bar {
 for_window [class="mpv"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Firefox"] border 1pixel
+for_window [title="Notification Microsoft Teams"] floating enable
 
 # Launch firefox
 bindsym $mod+BackSpace exec x-www-browser
