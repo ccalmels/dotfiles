@@ -1,8 +1,8 @@
 URxvt.scrollBar: false
-URxvt.font: xft:Menlo-9
-URxvt.boldFont: xft:Menlo-9:bold
+URxvt.font: xft:Fira Code-9:medium
+URxvt.boldFont: xft:Fira Code-9:bold
 URxvt.intensityStyles: false
-URxvt.letterSpace: -1
+URxvt.letterSpace: -2
 URxvt.pointerBlank: true
 
 URxvt.cutchars: "\\ `\"\'&()*,;<=>?@[]^{|}:"
