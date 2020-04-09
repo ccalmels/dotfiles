@@ -1,3 +1,4 @@
+;;; mu4e
 (let ((mu4e-accounts-file "~/.emacs.d/mu4e-accounts.el"))
   (when (file-exists-p mu4e-accounts-file)
 
