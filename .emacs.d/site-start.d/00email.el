@@ -39,4 +39,10 @@
 			  (when (mu4e-context-vars context)
 			    (cdr (assq 'user-mail-address (mu4e-context-vars context)))))
 			mu4e-contexts)))
+
+    ;; todo interaction
+    (require 'org-mu4e)
+
+    (define-key mu4e-headers-mode-map (kbd "C-c c") 'cc/org-capture-with-link)
+    (define-key mu4e-view-mode-map    (kbd "C-c c") 'cc/org-capture-with-link)
     ))
