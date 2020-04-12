@@ -79,7 +79,8 @@
 
 ;;; password store
 (when (executable-find "pass")
-  (require 'password-store nil 'noerror))
+  (when (require 'auth-source-pass nil 'noreror)
+    (auth-source-pass-enable)))
 
 ;;; GLSL mode
 (autoload 'glsl-mode "glsl-mode" nil t)

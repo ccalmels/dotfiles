@@ -21,9 +21,6 @@
 
     (add-to-list 'mu4e-view-actions '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
-    (require 'auth-source-pass)
-    (auth-source-pass-enable)
-
     (delete '("mime:image/*" "Messages with images" 112) mu4e-bookmarks)
     (add-to-list 'mu4e-bookmarks
 		 (make-mu4e-bookmark
