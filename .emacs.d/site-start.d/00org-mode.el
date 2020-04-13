@@ -10,6 +10,9 @@
 ;; open agenda in current window
 (setq org-agenda-window-setup (quote current-window))
 
+;; add CLOSED: date
+(setq org-log-done 'time)
+
 ;; capture template
 (setq org-capture-templates
       '(("t" "todo" entry (file+headline "~/todos.org" "Tasks")
