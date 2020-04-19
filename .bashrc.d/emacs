@@ -8,6 +8,7 @@ alias kem="emacsclient -e '(kill-emacs)'"
 
 alias emacs="emacsclient -c >&/dev/null"
 alias mu4e="$EDITOR -e '(mu4e)'"
+alias todo="$EDITOR -e '(org-todo-list)'"
 
 function sem()
 {
