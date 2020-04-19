@@ -21,24 +21,33 @@
 
     (add-to-list 'mu4e-view-actions '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
-    (delete '("mime:image/*" "Messages with images" 112) mu4e-bookmarks)
-    (add-to-list 'mu4e-bookmarks
-		 (make-mu4e-bookmark
-		  :name "Personal unread messages"
-		  :query "flag:unread AND NOT flag:trashed AND NOT maildir:/amelia/*"
-		  :key ?p))
-
     (load mu4e-accounts-file)
 
-    ;; This sets `mu4e-user-mail-address-list' to the concatenation of all
-    ;; `user-mail-address' values for all contexts. If you have other mail
-    ;; addresses as well, you'll need to add those manually.
-    (setq mu4e-user-mail-address-list
-	  (delq nil
-		(mapcar (lambda (context)
-			  (when (mu4e-context-vars context)
-			    (cdr (assq 'user-mail-address (mu4e-context-vars context)))))
-			mu4e-contexts)))
+    (if (version< mu4e-mu-version "1.4")
+	(progn
+	  (delete '("mime:image/*" "Messages with images" 112) mu4e-bookmarks)
+	  (add-to-list 'mu4e-bookmarks
+		       (make-mu4e-bookmark
+			:name "Personal unread messages"
+			:query "flag:unread AND NOT flag:trashed AND NOT maildir:/amelia/*"
+			:key ?p))
+
+	  ;; This sets `mu4e-user-mail-address-list' to the concatenation of all
+	  ;; `user-mail-address' values for all contexts. If you have other mail
+	  ;; addresses as well, you'll need to add those manually.
+	  (setq mu4e-user-mail-address-list
+		(delq nil
+		      (mapcar (lambda (context)
+				(when (mu4e-context-vars context)
+				  (cdr (assq 'user-mail-address (mu4e-context-vars context)))))
+			      mu4e-contexts)))
+	  )
+      (delete '(:name "Messages with images" :query "mime:image/*" :key 112) mu4e-bookmarks)
+      (add-to-list 'mu4e-bookmarks
+		   '( :name "Personal unread messages"
+			    :query "flag:unread AND NOT flag:trashed AND NOT maildir:/amelia/*"
+			    :key ?p))
+      )
 
     ;; todo interaction
     (require 'org-mu4e)
