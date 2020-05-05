@@ -1,4 +1,4 @@
-type emacsclient >/dev/null || return
+type emacsclient >&/dev/null || return 1
 
 export ALTERNATE_EDITOR=""
 export EDITOR="emacsclient -t"

@@ -7,14 +7,19 @@
 
 if tput init >&/dev/null; then
     GREEN=$(tput setaf 2)
+    RED=$(tput setaf 9)
     NORMAL=$(tput sgr0)
 fi
 
 echo -n "$GREEN["
 for f in ~/.bashrc.d/*[!~]; do
     [ -r "$f" ] || continue
-    echo -n "$SEP${f##*/}"
     . "$f"
+    if [ $? -eq 0 ]; then
+	echo -n "$SEP${f##*/}"
+    else
+	echo -n "$SEP$RED${f##*/}$GREEN"
+    fi
     SEP="|"
 done
 unset SEP

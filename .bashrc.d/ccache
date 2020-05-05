@@ -1,4 +1,4 @@
-[ -d "/usr/lib/ccache" ] || return
+[ -d "/usr/lib/ccache" ] || return 1
 
 PATH="/usr/lib/ccache":${PATH}
 
