@@ -20,10 +20,7 @@ _bd()
     base="${cur%%/*}"
 
     if [ "$base" = "$cur" ]; then
-	COMPREPLY=($(compgen -W "${PWD//\//$'\n'}" -- "$cur"))
-
-	[ ${#COMPREPLY[@]} -eq 1 ] && [ "${COMPREPLY[0]}" = "$cur" ] && \
-	    COMPREPLY[1]="$cur/"
+	COMPREPLY=($(compgen -S "/" -W "${PWD//\//$'\n'}" -- "$cur"))
     else
 	pwd="$PWD/"
 	pwd="${pwd%/$base/*}"
