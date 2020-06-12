@@ -48,11 +48,10 @@
 (defalias 'list-buffers 'ibuffer)
 
 ;; C-style
-(add-hook 'c-mode-hook
+(add-hook 'c-mode-common-hook
 	  (lambda() (c-set-style "linux")))
 (add-hook 'c++-mode-hook
-	  (lambda() (c-set-style "linux")
-	    (c-set-offset 'innamespace 0)))
+	  (lambda() (c-set-offset 'innamespace 0)))
 
 ;;; highligth
 (show-paren-mode t)
