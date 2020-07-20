@@ -19,6 +19,15 @@ _make_prompt()
 	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|" || JOBS=""
 
 	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
+
+	case "$TERM" in
+	    xterm*|rxvt*)
+		PS1="\e]0;\u@\h: \w\a$PS1"
+		;;
+	    *)
+		;;
+	esac
+
 	echo -ne "\a"
 }
 
