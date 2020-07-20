@@ -8,7 +8,7 @@ if tput init >&/dev/null; then
 	_YELLOW="\["${_BOLD}$(tput setaf 3)"\]"
 fi
 
-[ "$SSH_CONNECTION" ] && _PS1="${_PS1}${_GREY}@${HOSTNAME}${_NORMAL}|"
+[ "$SSH_CONNECTION" ] && _PS1="${_GREY}@${HOSTNAME}${_NORMAL}|"
 
 _make_prompt()
 {
