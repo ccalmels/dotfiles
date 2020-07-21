@@ -18,7 +18,7 @@ _make_prompt()
 	local JOBS
 	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|" || JOBS=""
 
-	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
+	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${_NORMAL}|${_PURPLE}\w${_NORMAL}$ \a"
 
 	case "$TERM" in
 	    xterm*|rxvt*)
@@ -27,8 +27,6 @@ _make_prompt()
 	    *)
 		;;
 	esac
-
-	echo -ne "\a"
 }
 
 PROMPT_DIRTRIM=5
