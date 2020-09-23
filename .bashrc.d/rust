@@ -1,0 +1,5 @@
+[ -r $HOME/.cargo/env ] && . $HOME/.cargo/env
+
+# Local Variables:
+# mode: sh
+# End:
