@@ -20,4 +20,6 @@
 	("l" "todo (with link)" entry (file+headline "~/todos.org" "Tasks")
          "* TODO [#A] %i%?\n  CREATED: %U\n  LINK: %a\n")))
 
+(advice-add 'org-agenda-quit :before 'org-save-all-org-buffers)
+
 (defun cc/org-capture-with-link () (interactive) (org-capture nil "l"))
