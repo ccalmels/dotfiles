@@ -10,6 +10,14 @@ fi
 
 [ "$SSH_CONNECTION" ] && _PS1="${_GREY}@${HOSTNAME}${_NORMAL}|"
 
+case "$TERM" in
+    xterm*|rxvt*|st*)
+	_PS1="\[\e]0;\u@\h: \w\a\]$_PS1"
+	;;
+    *)
+	;;
+esac
+
 _make_prompt()
 {
 	local RET=$?
@@ -20,13 +28,6 @@ _make_prompt()
 
 	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
 
-	case "$TERM" in
-	    xterm*|rxvt*|st*)
-		PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-		;;
-	    *)
-		;;
-	esac
 	echo -ne "\a"
 }
 
