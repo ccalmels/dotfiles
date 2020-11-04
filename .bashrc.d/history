@@ -1,0 +1,5 @@
+HISTIGNORE="ls:ll:cd:pwd:bg:fg:history"
+
+# Local Variables:
+# mode: sh
+# End:

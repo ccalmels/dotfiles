@@ -29,6 +29,8 @@ _make_prompt()
 	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
 
 	echo -ne "\a"
+	history -a
+	history -n
 }
 
 PROMPT_DIRTRIM=5
