@@ -6,6 +6,7 @@ if tput init >&/dev/null; then
 	_GREY="\["${_BOLD}$(tput setaf 10)"\]"
 	_PURPLE="\["${_BOLD}$(tput setaf 13)"\]"
 	_YELLOW="\["${_BOLD}$(tput setaf 3)"\]"
+	_BLINK="\["$(tput blink)"\]"
 fi
 
 [ "$SSH_CONNECTION" ] && _PS1="${_GREY}@${HOSTNAME}${_NORMAL}|"
@@ -21,7 +22,7 @@ esac
 _make_prompt()
 {
 	local RET=$?
-	[ ${RET} -ne 0 ] && RET="${_RED}rc=${RET}${_NORMAL}|" || RET=""
+	[ ${RET} -ne 0 ] && RET="${_RED}${_BLINK}rc=${RET}${_NORMAL}|" || RET=""
 
 	local JOBS
 	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|" || JOBS=""
