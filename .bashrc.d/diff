@@ -1,0 +1,9 @@
+alias diff='colored_diff'
+
+colored_diff () {
+     \diff -u --color=always "$@" | less -R
+}
+
+# Local Variables:
+# mode: sh
+# End:
