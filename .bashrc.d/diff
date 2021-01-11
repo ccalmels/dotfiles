@@ -1,7 +1,7 @@
 alias diff='colored_diff'
 
 colored_diff () {
-     \diff -u --color=always "$@" | less -R
+     \diff -u --color=always "$@" | less -RF
 }
 
 # Local Variables:
