@@ -1,7 +1,7 @@
 if tput init >&/dev/null; then
 	_BOLD=$(tput bold)
 	_NORMAL="\["$(tput sgr0)"\]"
-	_BLUE="\[${_BOLD}"$(tput setaf 4)"\]"
+	_BLUE="\["${_BOLD}$(tput setaf 4)"\]"
 	_RED="\["${_BOLD}$(tput setaf 1)"\]"
 	_GREY="\["${_BOLD}$(tput setaf 10)"\]"
 	_PURPLE="\["${_BOLD}$(tput setaf 13)"\]"
