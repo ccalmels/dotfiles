@@ -12,7 +12,7 @@ fi
 [ "$SSH_CONNECTION" ] && _PS1="${_GREY}@${HOSTNAME}${_NORMAL}|"
 
 case "$TERM" in
-    xterm*|rxvt*|st*)
+    xterm*|rxvt*|st*|tmux*|screen*)
 	_PS1="\[\e]0;\u@\h: \w\a\]$_PS1"
 	;;
     *)
