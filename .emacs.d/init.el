@@ -41,7 +41,9 @@
  inhibit-startup-screen t
  indent-tabs-mode t
  require-final-newline t
- tramp-default-method "ssh")
+ tramp-default-method "ssh"
+ tramp-use-ssh-controlmaster-options nil
+ auth-source-save-behavior nil)
 
 ;;; Custom exit
 (defalias 'yes-or-no-p 'y-or-n-p)
