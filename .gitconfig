@@ -9,7 +9,7 @@
 	root = rev-parse --show-toplevel
 
 [include]
-	path = .gitconfig.user
+	path = ~/.gitconfig.user
 
 [pull]
 	rebase = true
