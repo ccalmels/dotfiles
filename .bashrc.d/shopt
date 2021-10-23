@@ -1,4 +1,4 @@
-shopt -s autocd
+shopt -s autocd direxpand
 
 # Local Variables:
 # mode: sh
