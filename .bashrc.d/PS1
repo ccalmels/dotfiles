@@ -31,7 +31,6 @@ _make_prompt()
 
 	echo -ne "\a"
 	history -a
-	history -n
 }
 
 PROMPT_DIRTRIM=5
