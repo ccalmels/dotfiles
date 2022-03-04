@@ -16,8 +16,6 @@
 (global-set-key (kbd "C-z")         'undo)
 (global-set-key (kbd "C-l")         'goto-line)
 (global-set-key (kbd "M-r")         'revert-buffer)
-(global-set-key (kbd "<f5>")        'recompile)
-(global-set-key (kbd "<f6>")        'next-error)
 (global-set-key (kbd "M-%")         'query-replace-regexp)
 (global-set-key (kbd "<home>")      'beginning-of-buffer)
 (global-set-key (kbd "<end>")       'end-of-buffer)
@@ -35,7 +33,6 @@
 (menu-bar-mode -1)
 
 (setq-default
- compilation-ask-about-save nil
  gdb-many-windows t
  column-number-mode t
  inhibit-startup-screen t
