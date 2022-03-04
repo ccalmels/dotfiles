@@ -90,6 +90,16 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
+;;; use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+(load (concat user-emacs-directory "packages.el") 'noerror)
+
 ;;; Local Variables:
 ;;; after-save-hook: (lambda () (byte-compile-file buffer-file-name))
 ;;; End:
