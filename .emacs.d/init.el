@@ -1,9 +1,5 @@
 ;;; Emacs stuff
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -20,14 +16,6 @@
 (global-set-key (kbd "<home>")      'beginning-of-buffer)
 (global-set-key (kbd "<end>")       'end-of-buffer)
 
-;;; use shift+arrows
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
-
-;;; whitespace mode
-(require 'whitespace)
-(setq-default whitespace-style '(face trailing lines-tail indentation))
-(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;;; Aspect
 (menu-bar-mode -1)
@@ -60,32 +48,6 @@
 ;;; Saved files
 (setq backup-directory-alist `(("." . "~/.saves")))
 
-;;; Compile all .el files
-;;;(byte-recompile-directory user-emacs-directory 0)
-
-;;; add subdirectories to load-path
-(let ((default-directory (concat user-emacs-directory "lisp")))
-    (normal-top-level-add-subdirs-to-load-path))
-
-;;; rscope
-(when (executable-find "cscope")
-    (require 'rscope nil 'noerror))
-
-;;; MaGit
-(when (require 'magit nil 'noerror)
-  (global-set-key (kbd "C-x g") 'magit-status))
-
-;;; password store
-(when (executable-find "pass")
-  (when (require 'auth-source-pass nil 'noreror)
-    (auth-source-pass-enable)))
-
-;;; GLSL mode
-(autoload 'glsl-mode "glsl-mode" nil t)
-
-;;; Split configuration
-(debian-run-directories (concat user-emacs-directory "/site-start.d"))
-
 ;;; Customization
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
@@ -98,7 +60,12 @@
 (eval-when-compile
   (require 'use-package))
 
-(load (concat user-emacs-directory "packages.el") 'noerror)
+(load (concat user-emacs-directory "packages"))
+
+;;; Split configuration
+(let ((split-dir (concat user-emacs-directory "site-start.d")))
+;;  (byte-recompile-directory split-dir 0)
+  (debian-run-directories split-dir))
 
 ;;; Local Variables:
 ;;; after-save-hook: (lambda () (byte-compile-file buffer-file-name))
