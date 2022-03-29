@@ -3,7 +3,9 @@
 (global-set-key (kbd "<f5>")        'recompile)
 (global-set-key (kbd "<f6>")        'next-error)
 
-(setq-default compilation-ask-about-save nil)
+(setq-default
+ compilation-ask-about-save nil
+ compilation-scroll-output t)
 
 (require 'ansi-color)
 (defun cc/colorize-compilation ()
@@ -12,5 +14,4 @@
     (ansi-color-apply-on-region
      compilation-filter-start (point))))
 
-(add-hook 'compilation-filter-hook
-          #'cc/colorize-compilation)
+(add-hook 'compilation-filter-hook 'cc/colorize-compilation)
