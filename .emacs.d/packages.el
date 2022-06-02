@@ -41,19 +41,17 @@
   :mode "\\.overlay\\'")
 
 (use-package lsp-mode
+  :commands (lsp lsp-deferred)
   :custom
   (lsp-keymap-prefix "M-l")
-  ;; (lsp-enable-symbol-highlighting nil)
+  (lsp-pylsp-plugins-autopep8-enabled t)
   :hook
-  (lsp-mode . lsp-enable-which-key-integration)
-  (python-mode . lsp))
+  (python-mode . lsp-deferred)
+  (lsp-mode . lsp-enable-which-key-integration))
 
 (use-package lsp-ui
   :hook
   (lsp-mode . lsp-ui-mode)
-;;    ;; :custom
-;;    ;; (lsp-ui-doc-enable nil)
-;;    ;; (lsp-ui-imenu-enable nil)
   :bind
   (:map lsp-ui-mode-map
 	([remap xref-find-definitions] . lsp-ui-peek-find-definitions)

@@ -15,6 +15,7 @@
 (global-set-key (kbd "M-%")         'query-replace-regexp)
 (global-set-key (kbd "<home>")      'beginning-of-buffer)
 (global-set-key (kbd "<end>")       'end-of-buffer)
+(global-set-key (kbd "M-RET")       'push-button)
 
 
 ;;; Aspect

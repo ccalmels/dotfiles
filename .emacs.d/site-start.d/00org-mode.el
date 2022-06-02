@@ -15,6 +15,8 @@
       "* TODO [#A] %i%?\n  :PROPERTIES:\n  :CREATED: %U\n  :END:\n" :empty-lines 1)
      ("l" "Todo (with link)" entry (file "~/Org/todos.org")
       "* TODO [#A] %i%?\n  :PROPERTIES:\n  :CREATED: %U\n  :LINK: %a\n  :END:\n" :empty-lines 1)))
+  ;; force org-indent-mode
+  (org-startup-indented t)
   :config
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (defun cc/org-capture-with-link () (interactive) (org-capture nil "l"))
