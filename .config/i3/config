@@ -54,7 +54,7 @@ bindsym $mod+Right focus right
 #bindsym $mod+Shift+j move left
 #bindsym $mod+Shift+k move down
 #bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+M move right
+#bindsym $mod+Shift+m move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -168,8 +168,9 @@ for_window [title="Notification Microsoft Teams"] floating enable
 bindsym $mod+BackSpace exec x-www-browser
 
 bindsym $mod+L exec xautolock -locknow
+bindsym $mod+P exec --no-startup-id passmenu
 
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id ~/.config/i3/startup.sh
 
 # Volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
