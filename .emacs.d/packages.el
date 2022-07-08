@@ -40,6 +40,8 @@
   ;; for Zephyr DTS overlay
   :mode "\\.overlay\\'")
 
+(use-package kconfig-mode)
+
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :custom
@@ -47,6 +49,7 @@
   (lsp-pylsp-plugins-autopep8-enabled t)
   :hook
   (python-mode . lsp-deferred)
+  (rust-mode . lsp-deferred)
   (lsp-mode . lsp-enable-which-key-integration))
 
 (use-package lsp-ui
