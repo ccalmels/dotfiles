@@ -1,3 +1,6 @@
+(use-package exec-path-from-shell
+  :ensure)
+
 (use-package which-key
   :ensure
   :config (which-key-mode))
@@ -16,6 +19,7 @@
 (use-package whitespace
   :ensure
   :custom
+  (whitespace-line-column 100)
   (whitespace-style '(face trailing lines-tail indentation))
   :hook
   (prog-mode . whitespace-mode))

@@ -24,7 +24,7 @@
     (delete '(:name "Messages with images" :query "mime:image/*" :key 112)
 	    mu4e-bookmarks)))
 
-(use-package org-mu4e
+(use-package mu4e-org
   :requires (org mu4e)
   :bind
   (:map mu4e-headers-mode-map ("C-c c" . 'cc/org-capture-with-link)
