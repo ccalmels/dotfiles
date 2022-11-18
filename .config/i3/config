@@ -167,10 +167,10 @@ for_window [title="Notification Microsoft Teams"] floating enable
 # Launch firefox
 bindsym $mod+BackSpace exec x-www-browser
 
-bindsym $mod+L exec xautolock -locknow
-bindsym $mod+P exec --no-startup-id passmenu
+bindsym $mod+L exec ~/.config/i3/utils.sh lock
+bindsym $mod+P exec ~/.config/i3/utils.sh pass
 
-exec --no-startup-id ~/.config/i3/startup.sh
+exec ~/.config/i3/utils.sh startup
 
 # Volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
