@@ -27,7 +27,10 @@ _make_prompt()
 	local JOBS
 	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|" || JOBS=""
 
-	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
+	local EXTRA
+	[ -n "$VIRTUAL_ENV" ] && EXTRA="${_YELLOW} <${VIRTUAL_ENV##*/}>" || EXTRA=""
+
+	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${EXTRA}${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
 
 	echo -ne "\a"
 	history -a
