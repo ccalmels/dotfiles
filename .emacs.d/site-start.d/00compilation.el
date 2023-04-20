@@ -1,17 +1,11 @@
-;;; https://endlessparentheses.com/ansi-colors-in-the-compilation-buffer-output.html
+(use-package compile
+  :custom
+  (compilation-ask-about-save nil)
+  (compilation-scroll-output t)
+  :bind
+  ("<f5>" . recompile)
+  ("<f6>" . next-error))
 
-(global-set-key (kbd "<f5>")        'recompile)
-(global-set-key (kbd "<f6>")        'next-error)
-
-(setq-default
- compilation-ask-about-save nil
- compilation-scroll-output t)
-
-(require 'ansi-color)
-(defun cc/colorize-compilation ()
-  "Colorize from `compilation-filter-start' to `point'."
-  (let ((inhibit-read-only t))
-    (ansi-color-apply-on-region
-     compilation-filter-start (point))))
-
-(add-hook 'compilation-filter-hook 'cc/colorize-compilation)
+(use-package ansi-color
+  :hook
+  (compilation-filter . ansi-color-compilation-filter))
