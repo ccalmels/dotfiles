@@ -55,6 +55,9 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
+(when (daemonp)
+  (exec-path-from-shell-initialize))
+
 ;;; use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
