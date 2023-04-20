@@ -17,9 +17,11 @@
 (global-set-key (kbd "<end>")       'end-of-buffer)
 (global-set-key (kbd "M-RET")       'push-button)
 
-
 ;;; Aspect
 (menu-bar-mode -1)
+
+;;; Mouse support
+(xterm-mouse-mode)
 
 (setq-default
  gdb-many-windows t
