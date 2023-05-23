@@ -11,7 +11,7 @@ class UtilsStack(gdb.Command):
         args = gdb.string_to_argv(argument)
         sp = gdb.parse_and_eval(
             args.pop(0)) if args else gdb.selected_frame().read_register('sp')
-        length = int(args.pop(0)) if args else 10
+        length = int(gdb.parse_and_eval(args.pop(0))) if args else 10
         long_type_ptr = gdb.lookup_type('long').pointer()
         sp = sp.cast(long_type_ptr)
 
