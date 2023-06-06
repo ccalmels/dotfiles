@@ -1,5 +1,7 @@
 (use-package exec-path-from-shell
-  :ensure)
+  :if (daemonp)
+  :ensure
+  :config (exec-path-from-shell-initialize))
 
 (use-package which-key
   :ensure
