@@ -1,0 +1,34 @@
+define-prefix openocd
+
+define openocd attach
+  target extended-remote localhost:3333
+end
+
+define openocd load
+  monitor reset halt
+  if $argc > 0
+    load $arg0
+  else
+    load
+  end
+  monitor reset
+  tbreak main
+  continue
+end
+
+define-prefix jlink
+
+define jlink attach
+  target extended-remote localhost:2331
+end
+
+define jlink load
+  monitor reset
+  if $argc > 0
+    load $arg0
+  else
+    load
+  end
+  tbreak main
+  continue
+end
