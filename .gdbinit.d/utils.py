@@ -22,7 +22,7 @@ Usage: stack [EXP [LENGTH]]
 
         for a in range(length - 1, -1, -1):
             value = (sp + a).dereference().cast(long_type_ptr)
-            gdb.write(f'sp+{4*a:3d}: {value.format_string(styling=True)}\n')
+            gdb.write(f'sp +{4*a:3d}: {value.format_string(styling=True)}\n')
 
 
 UtilsStack()
