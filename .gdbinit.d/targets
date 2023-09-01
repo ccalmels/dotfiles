@@ -6,13 +6,14 @@ end
 
 define openocd load
   monitor reset halt
+
   if $argc > 0
     load $arg0
   else
     load
   end
   monitor reset
-  tbreak main
+
   continue
 end
 
@@ -24,11 +25,13 @@ end
 
 define jlink load
   monitor reset
+
   if $argc > 0
     load $arg0
   else
     load
   end
-  tbreak main
+
+  monitor reset
   continue
 end
