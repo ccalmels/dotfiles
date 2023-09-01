@@ -18,11 +18,11 @@ Usage: stack [EXP [LENGTH]]
         long_type_ptr = gdb.lookup_type('long').pointer()
         sp = sp.cast(long_type_ptr)
 
-        gdb.write(f'sp: {sp.format_string(styling=True)}\n')
+        gdb.write(f'sp: {sp.format_string(styling=from_tty)}\n')
 
         for a in range(length - 1, -1, -1):
             value = (sp + a).dereference().cast(long_type_ptr)
-            gdb.write(f'sp +{4*a:3d}: {value.format_string(styling=True)}\n')
+            gdb.write(f'sp +{4*a:3d}: {value.format_string(styling=from_tty)}\n')
 
 
 UtilsStack()
