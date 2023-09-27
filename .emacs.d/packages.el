@@ -28,7 +28,9 @@
 
 (use-package magit
   :ensure
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 (use-package company
   :ensure
