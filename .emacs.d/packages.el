@@ -26,6 +26,11 @@
   :hook
   (prog-mode . whitespace-mode))
 
+(use-package editorconfig
+  :ensure
+  :config
+  (editorconfig-mode))
+
 (use-package magit
   :ensure
   :bind ("C-x g" . magit-status)
