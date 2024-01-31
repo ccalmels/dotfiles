@@ -12,7 +12,6 @@ define openocd load
   else
     load
   end
-  monitor reset
 
   continue
 end
@@ -32,6 +31,5 @@ define jlink load
     load
   end
 
-  monitor reset
   continue
 end
