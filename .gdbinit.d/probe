@@ -1,0 +1,31 @@
+define-prefix probe
+
+define probe openocd
+  set $_probe_type = "openocd"
+  target extended-remote localhost:3333
+end
+
+define probe jlink
+  set $_probe_type = "jlink"
+  target extended-remote localhost:2331
+end
+
+define probe load
+  if $_isvoid($_probe_type)
+    printf "not attached\n"
+  else
+    if $_streq($_probe_type, "openocd")
+      monitor reset halt
+    else
+      monitor reset
+    end
+
+    if $argc > 0
+      load $arg0
+    else
+      load
+    end
+
+    continue
+  end
+end
