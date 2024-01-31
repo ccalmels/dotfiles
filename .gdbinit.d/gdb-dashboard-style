@@ -5,3 +5,7 @@ dashboard -style prompt_not_running "\[\e[35m\]>>>\[\e[0m\]"
 dashboard -style style_selected_1 "1;34"
 dashboard -style style_selected_2 "95"
 dashboard -style style_low "92"
+
+# Remove some panes
+dashboard history
+dashboard expressions
