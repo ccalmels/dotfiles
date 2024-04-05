@@ -2,12 +2,20 @@ define-prefix probe
 
 define probe openocd
   set $_probe_type = "openocd"
-  target extended-remote localhost:3333
+  if $argc > 0
+    target extended-remote localhost:$arg0
+  else
+    target extended-remote localhost:3333
+  end
 end
 
 define probe jlink
   set $_probe_type = "jlink"
-  target extended-remote localhost:2331
+  if $argc > 0
+    target extended-remote localhost:$arg0
+  else
+    target extended-remote localhost:2331
+  end
 end
 
 define probe load
