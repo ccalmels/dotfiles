@@ -1,3 +1,5 @@
+type lessfile >&/dev/null || return 1
+
 eval "$(lessfile)"
 
 # Local Variables:

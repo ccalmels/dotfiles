@@ -1,6 +1,10 @@
+type git >&/dev/null || return 1
+
 alias dfm-git='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # load completion
+type _completion_loader >&/dev/null || return 1
+
 _completion_loader git
 completion=$(complete -p git 2>/dev/null)
 
