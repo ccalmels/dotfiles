@@ -1,7 +1,7 @@
 dashboard -style syntax_highlighting "solarized-dark"
 
-dashboard -style prompt_running "\[\e[1;35m\]>>>\[\e[0m\]"
-dashboard -style prompt_not_running "\[\e[35m\]>>>\[\e[0m\]"
+dashboard -style prompt_running r"\[\e[1;35m\]>>>\[\e[0m\]"
+dashboard -style prompt_not_running r"\[\e[35m\]>>>\[\e[0m\]"
 dashboard -style style_selected_1 "1;34"
 dashboard -style style_selected_2 "95"
 dashboard -style style_low "92"
