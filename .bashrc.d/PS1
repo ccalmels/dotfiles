@@ -28,7 +28,7 @@ _make_prompt()
 	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|" || JOBS=""
 
 	local EXTRA
-	[ -n "$VIRTUAL_ENV" ] && EXTRA="${_YELLOW} <${VIRTUAL_ENV##*/}>" || EXTRA=""
+	[ -n "$VIRTUAL_ENV_PROMPT" ] && EXTRA="${_YELLOW} ${VIRTUAL_ENV_PROMPT}" || EXTRA=""
 
 	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${EXTRA}${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
 
