@@ -8,6 +8,7 @@
 	lg = log --decorate --oneline --graph
 	lgs = log --decorate --oneline --graph --all
 	root = rev-parse --show-toplevel
+	aliases = config --get-regexp ^alias
 
 [include]
 	path = ~/.gitconfig.user
