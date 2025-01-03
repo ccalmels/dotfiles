@@ -12,7 +12,8 @@ fi
 [ "$SSH_CONNECTION" ] && _PS1="${_GREY}@${HOSTNAME}${_NORMAL}|"
 
 case "$TERM" in
-    xterm*|rxvt*|st*|tmux*|screen*)
+    xterm*|rxvt*|st*|tmux*|screen*|alacritty)
+	# Update the terminal dynamic title
 	_PS1="\[\e]0;\u@\h: \w\a\]$_PS1"
 	;;
     *)
