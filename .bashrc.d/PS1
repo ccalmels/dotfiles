@@ -20,18 +20,31 @@ case "$TERM" in
 	;;
 esac
 
+# Git completion:
+# https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Bash
+if [ -r /etc/bash_completion.d/git-prompt ]; then
+    . /etc/bash_completion.d/git-prompt
+    export GIT_PS1_SHOWCOLORHINTS=1
+    export GIT_PS1_SHOWDIRTYSTATE=1
+fi
+
 _make_prompt()
 {
 	local RET=$?
 	[ ${RET} -ne 0 ] && RET="${_RED}${_BLINK}rc=${RET}${_NORMAL}|" || RET=""
 
 	local JOBS
-	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|" || JOBS=""
+	[ "$(jobs)" ] && JOBS="${_YELLOW}j=\j${_NORMAL}|"
 
 	local EXTRA
-	[ -n "$VIRTUAL_ENV_PROMPT" ] && EXTRA="${_YELLOW} ${VIRTUAL_ENV_PROMPT}" || EXTRA=""
+	[ -n "$VIRTUAL_ENV_PROMPT" ] && EXTRA="${_YELLOW} ${VIRTUAL_ENV_PROMPT}"
 
-	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${EXTRA}${_NORMAL}|${_PURPLE}\w${_NORMAL}$ "
+	local GIT_PROMPT
+	declare -F __git_ps1 >/dev/null \
+	    && df -x fuse.afuse . >&/dev/null \
+	    && GIT_PROMPT="$(__git_ps1)"
+
+	PS1="${_PS1}${JOBS}${RET}${_BLUE}\t${EXTRA}${_NORMAL}|${_PURPLE}\w${_NORMAL}${GIT_PROMPT}$ "
 
 	echo -ne "\a"
 	history -a
