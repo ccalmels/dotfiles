@@ -1,0 +1,13 @@
+general.import = [
+       "~/.config/alacritty/themes/themes/solarized_dark.toml"
+]
+
+[window]
+opacity = 0.975
+
+[font]
+normal = { family = "FiraCode", style = "medium" }
+size = 8.5
+
+[mouse]
+hide_when_typing = true
