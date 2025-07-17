@@ -1,14 +1,11 @@
 (use-package exec-path-from-shell
   :if (daemonp)
-  :ensure
   :config (exec-path-from-shell-initialize))
 
 (use-package which-key
-  :ensure
   :config (which-key-mode))
 
 (use-package windmove
-  :ensure
   :custom
   (windmove-wrap-around t)
   :config
@@ -19,7 +16,6 @@
   (add-hook 'org-shiftright-final-hook 'windmove-right))
 
 (use-package whitespace
-  :ensure
   :custom
   (whitespace-line-column 100)
   (whitespace-style '(face trailing lines-tail indentation))
@@ -27,18 +23,15 @@
   (prog-mode . whitespace-mode))
 
 (use-package editorconfig
-  :ensure
   :config
   (editorconfig-mode))
 
 (use-package magit
-  :ensure
   :bind ("C-x g" . magit-status)
   :custom
   (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 (use-package company
-  :ensure
   :config (global-company-mode))
 
 (use-package auth-source-pass
