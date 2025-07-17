@@ -2,6 +2,23 @@
   :if (daemonp)
   :config (exec-path-from-shell-initialize))
 
+(use-package treesit
+  :config
+  (setq treesit-language-source-alist
+	'((rust . ("https://github.com/tree-sitter/tree-sitter-rust.git/" "v0.23.3"))
+	  (python "https://github.com/tree-sitter/tree-sitter-python")))
+  (setq major-mode-remap-alist
+	'((python-mode . python-ts-mode))))
+
+
+(use-package cmake-ts-mode
+  :init (add-to-list 'treesit-language-source-alist
+		     '(cmake "https://github.com/uyha/tree-sitter-cmake")))
+
+(use-package yaml-ts-mode
+  :init (add-to-list 'treesit-language-source-alist
+		     '(yaml "https://github.com/tree-sitter-grammars/tree-sitter-yaml")))
+
 (use-package which-key
   :config (which-key-mode))
 
@@ -41,6 +58,10 @@
 (use-package rscope
   :if (executable-find "cscope")
   :load-path "lisp/rscope")
+
+(use-package rust-mode
+  :custom
+  (rust-mode-treesitter-derive t))
 
 (use-package dts-mode
   ;; for Zephyr DTS overlay
