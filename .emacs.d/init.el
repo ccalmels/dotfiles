@@ -21,7 +21,7 @@
 (menu-bar-mode -1)
 
 ;;; Mouse support
-(xterm-mouse-mode)
+(xterm-mouse-mode t)
 
 (setq-default
  gdb-many-windows t
