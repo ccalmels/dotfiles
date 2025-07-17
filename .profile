@@ -1,6 +1,6 @@
 . /etc/skel/.profile $@
 
-[ -z "$DISPLAY" ] && [ "$XDG_VTNR" = "1" ] && exec startx -- vt$XDG_VTNR
+[ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = "1" ] && exec sway
 :
 
 # Local Variables:
