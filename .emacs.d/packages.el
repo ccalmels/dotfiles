@@ -35,7 +35,7 @@
 (use-package whitespace
   :custom
   (whitespace-line-column 100)
-  (whitespace-style '(face trailing lines-tail indentation))
+  (whitespace-style '(face trailing lines-tail empty indentation))
   :hook
   (prog-mode . whitespace-mode))
 
