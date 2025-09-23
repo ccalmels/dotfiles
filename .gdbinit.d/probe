@@ -9,6 +9,10 @@ define probe openocd
   end
 end
 
+document probe openocd
+Connect to an OpenOCD probe.
+end
+
 define probe jlink
   set $_probe_type = "jlink"
   if $argc > 0
@@ -16,6 +20,10 @@ define probe jlink
   else
     target extended-remote localhost:2331
   end
+end
+
+document probe jlink
+Connect to a JLink probe.
 end
 
 define probe load
@@ -36,4 +44,8 @@ define probe load
 
     continue
   end
+end
+
+document probe load
+Reset, Load and Continue.
 end
