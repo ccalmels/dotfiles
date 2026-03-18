@@ -1,0 +1,12 @@
+[Unit]
+Description=SSHFS: afuse automounter for ~/sshfs
+AssertPathExists=%h/sshfs/
+AssertFileIsExecutable=/usr/bin/afuse
+AssertFileIsExecutable=/usr/bin/sshfs
+
+[Service]
+ExecStart=/usr/bin/afuse -f -o timeout=600 -o mount_template='/usr/bin/sshfs -o reconnect %%r:/ %%m' -o unmount_template='fusermount -u -z %%m' %h/sshfs
+StandardOutput=null
+
+[Install]
+WantedBy=default.target
