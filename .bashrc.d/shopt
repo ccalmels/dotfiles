@@ -1,4 +1,4 @@
-shopt -s autocd direxpand
+shopt -s autocd direxpand globstar
 
 # Local Variables:
 # mode: sh
