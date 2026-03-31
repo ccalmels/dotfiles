@@ -65,20 +65,12 @@
 
 (use-package kconfig-mode)
 
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
+(use-package eglot
+  :hook
+  ((python-ts-mode rust-mode c++-ts-mode c-ts-mode) . eglot-ensure)
   :custom
-  (lsp-keymap-prefix "M-l")
-  (lsp-pylsp-plugins-autopep8-enabled t)
-  :hook
-  (python-mode . lsp-deferred)
-  (rust-mode . lsp-deferred)
-  (lsp-mode . lsp-enable-which-key-integration))
+  (eglot-events-buffer-config '(:size 0 :format full))
+  (eglot-autoshutdown t)
+  :config
+  (add-to-list 'eglot-server-programs '(python-base-mode . ("ruff" "server"))))
 
-(use-package lsp-ui
-  :hook
-  (lsp-mode . lsp-ui-mode)
-  :bind
-  (:map lsp-ui-mode-map
-	([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-	([remap xref-find-references] . lsp-ui-peek-find-references)))
