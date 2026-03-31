@@ -3,21 +3,24 @@
   :config (exec-path-from-shell-initialize))
 
 (use-package treesit
-  :config
+  :init
   (setq treesit-language-source-alist
-	'((rust . ("https://github.com/tree-sitter/tree-sitter-rust.git/" "v0.23.3"))
-	  (python "https://github.com/tree-sitter/tree-sitter-python")))
+	'((rust "https://github.com/tree-sitter/tree-sitter-rust.git/")
+	  (python "https://github.com/tree-sitter/tree-sitter-python")
+	  (cmake "https://github.com/uyha/tree-sitter-cmake")
+	  (yaml "https://github.com/tree-sitter-grammars/tree-sitter-yaml")
+	  (c "https://github.com/tree-sitter/tree-sitter-c")
+	  (cpp "https://github.com/tree-sitter/tree-sitter-cpp")))
   (setq major-mode-remap-alist
-	'((python-mode . python-ts-mode))))
-
-
-(use-package cmake-ts-mode
-  :init (add-to-list 'treesit-language-source-alist
-		     '(cmake "https://github.com/uyha/tree-sitter-cmake")))
-
-(use-package yaml-ts-mode
-  :init (add-to-list 'treesit-language-source-alist
-		     '(yaml "https://github.com/tree-sitter-grammars/tree-sitter-yaml")))
+	'((python-mode . python-ts-mode)
+	  (cmake-mode . cmake-ts-mode)
+	  (yaml-mode . yaml-ts-mode)
+	  (c-mode . c-ts-mode)
+	  (c++-mode . c++-ts-mode)
+	  (c-or-c++-mode . c-or-c++-ts-mode)))
+  (dolist (lang treesit-language-source-alist)
+    (unless (treesit-language-available-p (car lang))
+      (treesit-install-language-grammar (car lang)))))
 
 (use-package which-key
   :config (which-key-mode))
