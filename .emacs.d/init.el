@@ -1,4 +1,5 @@
-;;; Emacs stuff
+;; -*- lexical-binding: t; -*-
+;; Emacs stuff
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
