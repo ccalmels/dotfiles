@@ -3,7 +3,7 @@
   :config (exec-path-from-shell-initialize))
 
 (use-package treesit
-  :init
+  :config
   (setq treesit-language-source-alist
 	'((rust "https://github.com/tree-sitter/tree-sitter-rust.git/")
 	  (python "https://github.com/tree-sitter/tree-sitter-python")
