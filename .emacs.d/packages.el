@@ -43,8 +43,8 @@
   (editorconfig-mode))
 
 (use-package magit
-  :bind ("C-x g" . magit-status)
   :custom
+  (magit-define-global-key-bindings 'recommended)
   (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 (use-package company
