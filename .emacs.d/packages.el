@@ -75,6 +75,5 @@
   (eglot-events-buffer-config '(:size 0 :format full))
   (eglot-autoshutdown t)
   :config
-  (add-to-list 'eglot-server-programs '(python-base-mode . ("ruff" "server")))
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer" :initializationOptions
 						     (:check (:command "clippy"))))))
