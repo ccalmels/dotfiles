@@ -70,7 +70,7 @@
 
 (use-package eglot
   :hook
-  ((python-ts-mode rust-mode c++-ts-mode c-ts-mode) . eglot-ensure)
+  ((python-base-mode rust-mode c++-ts-mode c-ts-mode) . eglot-ensure)
   :custom
   (eglot-events-buffer-config '(:size 0 :format full))
   (eglot-autoshutdown t)
